@@ -1,0 +1,145 @@
+###################################################
+###									  			###
+###  使用python做自动化视频剪辑项目 (win10版)  ###
+###									  			###
+###################################################
+
+
+一：下载并安装编程工具
+1. python-3.11.9-amd64.exe		下载和安装
+2. pycharm-2025.2.0.1.exe 		下载和安装
+3. ffmpeg-7.1.1-full_build.7z 	下载安装(需要配置环境变量)
+
+二：创建自动化视频剪辑项目
+1. 通过pycharm编程工具创建项目
+
+三：安装项目所必须得依赖库
+1. 在虚拟环境.venv中升级pip版本到最新
+python -m pip install --upgrade pip
+
+2.初始化 requirements 依赖文件
+pip freeze > requirements.txt
+
+3.编辑requirements添必要的python编程依赖库
+# 核心视频处理库
+moviepy==1.0.3
+opencv-python==4.9.0.80
+ffmpeg-python==0.2.0
+
+# 音频处理
+pydub==0.25.1
+
+# 图像处理与生成
+Pillow==11.3.0
+numpy==1.24.3
+
+# 进度显示与工具
+tqdm==4.66.3
+
+# 数据处理与可视化
+matplotlib==3.7.2
+pandas==2.0.3
+
+# 文件操作与工具
+pathlib==1.0.1  # 通常为标准库，但明确版本确保兼容性
+
+# 高级功能扩展
+scikit-image==0.21.0  # 图像分析算法
+scikit-learn==1.5.0   # 机器学习辅助功能
+
+3. 批量安装依赖库
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+
+四：开始愉快的编程！
+
+
+使用python做视频剪辑的自动化。
+【要求】
+1. 通过python工程来实现完整的自动化剪辑代码 
+2. 直接通过python调用ffmpeg实现对.mp4视频文件的各种操作
+3. 通过python 3.11.9sdk来实现
+4. 核心代码添加详细的中文注释
+5. 严格自我要求，不要写代码bug。python编程工具使用pycharm
+
+
+AutoVideoClip/
+│
+├── main.py                          # 主程序入口，调用所有功能演示
+├── video_editor.py                  # 核心类：封装所有 ffmpeg 视频操作
+├── utils.py                         # 工具函数：路径、检查 ffmpeg、输出目录管理
+├── inputs/                          # 📁 你自己放入：原始视频、水印图片等
+│   ├── input1.mp4
+│   ├── input2.mp4
+│   └── watermark.png                # 可选，用于加水印
+├── outputs/                         # 📁 程序自动创建，存放处理后的视频
+└── requirements.txt                 # （可选，本例无需安装第三方库）
+
+
+
+使用python做视频剪辑的自动化。
+【要求】
+1. 通过python工程来实现完整的自动化剪辑代码 
+2. 直接通过python调用ffmpeg实现对.mp4视频文件的各种操作
+3. 通过python 3.11.9sdk来实现
+4. 核心代码添加详细的中文注释
+5. 严格自我要求，不要写代码bug。python编程工具使用pycharm
+6. 添加功能每次运行main程序都会清理outputs里面的所有生成文件
+7. 添加功能合并两个视频
+8. 增加一个完整的精剪本地库，需要包括调整剪辑点，节奏和转场，以及扩展动态效果和特效, 包含所选的扩展功能 以及 扩展的可能动画效果。
+9. 增加一个完整的音频编辑库，需要包含所有做视频剪辑需要的音频相关功能，比如音量，音效，背景音乐，音频视频画面同步和谐，多音轨处理，基础音效（均衡、回声等 —— 通过 ffmpeg 滤镜实现）等。
+10.增加一个完整的色彩校正库，需要实现可改善的视觉效果 以及色彩分级等诸多做视频需要处理的色彩调整 以及 色彩的诸多实用功能
+11. 增加一个标准的视频合成库，需包含添加标题、字幕、图形元素等视觉增强处理的功能 以及 ​视频图文叠加，图形合成，字幕处理，标题动画，​动态图形，AR叠加，元数据嵌入等。  
+12. 增加一个导出分发库，可将剪辑好的视频导出为合适的发布格式，并且可根据需要分发到各种短视频平台，抖音，小红书，视频号等
+	自动调整分辨率、码率、帧率
+	提供主流短视频平台（抖音、小红书、视频号、B站、YouTube）的预设配置
+
+基于上述已经实现的各个功能模块代码，提供完整最终版的测试模块 （调用所有模块：剪辑、合并、精剪、音频、色彩、动画、合成、导出、校验、清理等） main.py直接调用测试模块来测试，防止main.py代码过于复杂冗长。 要求编写出详细的测试，而不是简单测试模块内的单一功能。 测试试代码中不能只是模块内的单个方法测试，这不是我所需要的。我需要测试代码需要调用功能库内所有的方法测试。 先只回答实现上述测试全部功能，inputs目录内需要哪些输入文件
+
+
+
+
+测试代码实现：
+
+1. 使用模块化测试思想，在test_modules.py内编写上述功能库文件所有功能的测试代码。要求测试视频剪辑的代码有明晰界面打印输出
+
+2. 将上述关于audio_editor.py文件单独写一个其带有完整功能测试模块，最终都整合到test_modules.py。然后被main一起直接调用。其他要求不变。 这么做事为防止test_modules.py 测试代码过于冗长。
+
+3. 参考前面的测试代码模式，确保 所有模块（audio_editor）的完整功能都得到充分测试
+
+4. 要求测试视频剪辑的代码有明晰界面打印输出，有对应的输出图标
+
+5. 请注意inputs目录原文件都已经存在bgm.mp3，cat_01.mp4，cat_02.mp4，logo.png，watermark.png，请严格要求自己，编写完整而且无bug的测试代码！
+
+
+测试方法：
+# 1. 运行所有测试 (默认)
+python main.py
+
+# 或者明确指定 --all
+python main.py --all
+
+# 2. 运行单个测试模块
+python main.py --module video_editor
+python main.py --module video_trimmer
+python main.py --module audio_editor
+python main.py --module color_correction
+python main.py --module video_compositor
+python main.py --module export_distributor
+
+# 3. 运行多个测试模块
+python main.py --module video_editor --module video_trimmer --module color_correction
+
+# 4. 按测试组运行
+python main.py --video          # 视频相关测试
+python main.py --audio         # 音频相关测试
+python main.py --export        # 导出相关测试
+python main.py --group video   # 同 --video
+python main.py --group audio   # 同 --audio
+python main.py --group export  # 同 --export
+
+# 5. 组合使用
+python main.py --video --audio
+python main.py --module video_editor --group export
+python main.py --video --export

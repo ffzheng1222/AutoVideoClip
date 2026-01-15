@@ -1,0 +1,25 @@
+# 核心视频处理库
+moviepy==1.0.3
+opencv-python==4.9.0.80
+ffmpeg-python==0.2.0
+
+# 音频处理
+pydub==0.25.1
+
+# 图像处理与生成
+Pillow==11.3.0
+numpy==1.24.3
+
+# 进度显示与工具
+tqdm==4.66.3
+
+# 数据处理与可视化
+matplotlib==3.7.2
+pandas==2.0.3
+
+# 文件操作与工具
+pathlib==1.0.1  # 通常为标准库，但明确版本确保兼容性
+
+# 高级功能扩展
+scikit-image==0.21.0  # 图像分析算法
+scikit-learn==1.5.0   # 机器学习辅助功能
