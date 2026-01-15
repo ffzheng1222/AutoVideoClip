@@ -1,0 +1,24 @@
+
+# 视频/音频临时文件
+*.mp4.tmp
+*.avi.tmp
+*.mov.tmp
+*.wav.tmp
+
+# 大文件
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+*.zip
+*.tar.gz
+
+# 日志
+*.log
+logs/
+
+# 配置文件（包含敏感信息）
+config.ini
+secrets.json
+*.env
